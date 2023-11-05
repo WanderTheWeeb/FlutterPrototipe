@@ -1,0 +1,6 @@
+package mx.org.uv.app
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
