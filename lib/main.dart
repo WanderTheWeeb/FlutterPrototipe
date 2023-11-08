@@ -1,6 +1,14 @@
+import 'package:MindWell/cubit/rooms/rooms_cubit.dart';
+import 'package:MindWell/pages/introduction_page.dart';
+import 'package:MindWell/pages/introscreen/aclaraciones_page.dart';
+import 'package:MindWell/pages/introscreen/terms&condition_page.dart';
+import 'package:MindWell/pages/introscreen/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:santes/pages/chat_page.dart';
+import 'package:MindWell/pages/chat_page.dart';
+import 'package:MindWell/pages/login_page.dart';
+import 'package:MindWell/pages/register_psi_page.dart';
+import 'package:MindWell/pages/rooms_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'cubit/profile/profiles_cubit.dart';
 import 'pages/splash_page.dart';
@@ -24,16 +32,30 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ProfilesCubit>(
-      create: (context) => ProfilesCubit(),
+    return MultiBlocProvider(providers: [
+      BlocProvider<ProfilesCubit>(
+        create: (context) => ProfilesCubit(),
+      ),
+      BlocProvider<RoomCubit>(
+        create: (context) => RoomCubit(),
+      )
+    ],
       child: MaterialApp(
         routes: {
-          '/ChatScreen' : (context) => const ChatPage(),
+          '/LoginPage': (context) => const LoginPage(),
+          '/ChatScreen': (context) => const ChatPage(),
+          '/RoomsPage': (context) => const RoomsPage(),
+          '/RegisterScreen': (context) => const RegisterPsiPage(),
+          '/IntroductionScreen': (context) => const IntroductionScreen(),
+          '/Terminos&Condiciones': (context) => const TerminosCondiciones(),
+          '/Aclaraciones': (context) => const Aclaraciones(),
+          '/Bienvenida': (context) => const Bienvenida(),
+          '/SplashScreen': (context) => const SplashPage()
         },
         title: 'SanteChat',
         debugShowCheckedModeBanner: false,
         theme: appTheme,
-        home: const SplashPage(),
+        home: const IntroductionScreen(),
       ),
     );
   }

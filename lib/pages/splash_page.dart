@@ -1,10 +1,10 @@
+import 'package:MindWell/pages/register_page.dart';
+import 'package:MindWell/pages/rooms_page.dart';
+import 'package:MindWell/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:santes/pages/register_page.dart';
-import 'package:santes/pages/rooms_page.dart';
-import 'package:santes/utils/constants.dart';
+
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-/// Page to redirect users to the appropriate page depending on the initial auth state
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 

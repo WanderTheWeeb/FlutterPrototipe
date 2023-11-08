@@ -20,77 +20,77 @@ const unexpectedErrorMessage = 'Unexpected error occured.';
 
 /// Basic theme to change the look and feel of the app
 final appTheme = ThemeData.light().copyWith(
-  primaryColorDark: Colors.blue,
-  useMaterial3: true,
-  appBarTheme: const AppBarTheme(
-    elevation: 1,
-    backgroundColor: Colors.blue,
-    iconTheme: IconThemeData(color: Colors.white),
-    titleTextStyle: TextStyle(
-      color: Colors.white,
-      fontSize: 18,
-    ),
-  ),
-
-  drawerTheme: const DrawerThemeData(
-    width: 230,
-    backgroundColor: Colors.black38,
-    elevation: 2,
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20))),
-  ),
-
-  iconTheme: const IconThemeData(
-    color: Colors.white,
-  ),
-
-  listTileTheme: const ListTileThemeData(
-    iconColor: Colors.white,
-    textColor: Colors.white,
-  ),
-
-  primaryColor: Colors.blue,
-  textButtonTheme: TextButtonThemeData(
-    style: TextButton.styleFrom(
-      foregroundColor: Colors.blue,
-    ),
-  ),
-
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      foregroundColor: Colors.white,
+    primaryColorDark: Colors.blue,
+    useMaterial3: true,
+    appBarTheme: const AppBarTheme(
+      elevation: 1,
       backgroundColor: Colors.blue,
-    ),
-  ),
-
-  inputDecorationTheme: InputDecorationTheme(
-    outlineBorder: const BorderSide(color: Colors.black12),
-    floatingLabelStyle: const TextStyle(
-      color: Colors.blue,
-    ),
-
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(12),
-      borderSide: const BorderSide(
-        color: Colors.grey,
-        width: 2,
+      iconTheme: IconThemeData(color: Colors.white),
+      titleTextStyle: TextStyle(
+        color: Colors.white,
+        fontSize: 18,
       ),
     ),
 
-    focusColor: Colors.blue,
+    drawerTheme: const DrawerThemeData(
+      width: 230,
+      backgroundColor: Colors.black38,
+      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20))),
+    ),
 
-    focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(12),
-      borderSide: const BorderSide(
+    iconTheme: const IconThemeData(
+      color: Colors.white,
+    ),
+
+    listTileTheme: const ListTileThemeData(
+      iconColor: Colors.white,
+      textColor: Colors.white,
+    ),
+
+    primaryColor: Colors.blue,
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        foregroundColor: Colors.blue,
+      ),
+    ),
+
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.blue,
+      ),
+    ),
+
+    inputDecorationTheme: InputDecorationTheme(
+      outlineBorder: const BorderSide(color: Colors.black12),
+      floatingLabelStyle: const TextStyle(
         color: Colors.blue,
-        width: 2,
+      ),
+
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(
+          color: Colors.grey,
+          width: 2,
+        ),
+      ),
+
+      focusColor: Colors.blue,
+
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(
+          color: Colors.blue,
+          width: 2,
+        ),
       ),
     ),
-  ),
-  snackBarTheme: const SnackBarThemeData(
-    contentTextStyle: TextStyle(
-      color: Colors.black
+    snackBarTheme: const SnackBarThemeData(
+        contentTextStyle: TextStyle(
+            color: Colors.black
+        )
     )
-  )
 );
 
 /// Set of extension methods to easily display a snackbar

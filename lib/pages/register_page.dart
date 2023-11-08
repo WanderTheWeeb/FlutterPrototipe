@@ -1,21 +1,19 @@
 import 'dart:async';
 
+import 'package:MindWell/pages/rooms_page.dart';
 import 'package:flutter/material.dart';
-import 'package:santes/pages/rooms_page.dart';
+
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../utils/constants.dart';
 import 'login_page.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage(
-      {Key? key, required this.isRegistering})
-      : super(key: key);
+  const RegisterPage({Key? key, required this.isRegistering}) : super(key: key);
 
   static Route<void> route({bool isRegistering = false}) {
     return MaterialPageRoute(
-      builder: (context) =>
-          RegisterPage(isRegistering: isRegistering),
+      builder: (context) => RegisterPage(isRegistering: isRegistering),
     );
   }
 
@@ -34,8 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final _passwordController = TextEditingController();
   final _usernameController = TextEditingController();
 
-  late final StreamSubscription<AuthState>
-  _authSubscription;
+  late final StreamSubscription<AuthState> _authSubscription;
 
   @override
   void initState() {
@@ -43,15 +40,13 @@ class _RegisterPageState extends State<RegisterPage> {
 
     bool haveNavigated = false;
     // Listen to auth state to redirect user when the user clicks on confirmation link
-    _authSubscription =
-        supabase.auth.onAuthStateChange.listen((data) {
-          final session = data.session;
-          if (session != null && !haveNavigated) {
-            haveNavigated = true;
-            Navigator.of(context)
-                .pushReplacement(RoomsPage.route());
-          }
-        });
+    _authSubscription = supabase.auth.onAuthStateChange.listen((data) {
+      final session = data.session;
+      if (session != null && !haveNavigated) {
+        haveNavigated = true;
+        Navigator.of(context).pushReplacement(RoomsPage.route());
+      }
+    });
   }
 
   @override
@@ -78,14 +73,12 @@ class _RegisterPageState extends State<RegisterPage> {
         emailRedirectTo: 'io.supabase.chat://login',
       );
       context.showSnackBar(
-          message:
-          'Please check your inbox for confirmation email.');
+          message: 'Please check your inbox for confirmation email.');
     } on AuthException catch (error) {
       context.showErrorSnackBar(message: error.message);
     } catch (error) {
       debugPrint(error.toString());
-      context.showErrorSnackBar(
-          message: unexpectedErrorMessage);
+      context.showErrorSnackBar(message: unexpectedErrorMessage);
     }
   }
 
@@ -113,7 +106,6 @@ class _RegisterPageState extends State<RegisterPage> {
               },
               keyboardType: TextInputType.emailAddress,
             ),
-            const Spacer(),
             TextFormField(
               controller: _passwordController,
               obscureText: true,
@@ -130,7 +122,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 return null;
               },
             ),
-            const Spacer(),
+            const SizedBox(height: 16),
             TextFormField(
               controller: _usernameController,
               decoration: const InputDecoration(
@@ -140,28 +132,24 @@ class _RegisterPageState extends State<RegisterPage> {
                 if (val == null || val.isEmpty) {
                   return 'Required';
                 }
-                final isValid =
-                RegExp(r'^[A-Za-z0-9_]{3,24}$')
-                    .hasMatch(val);
+                final isValid = RegExp(r'^[A-Za-z0-9_]{3,24}$').hasMatch(val);
                 if (!isValid) {
                   return '3-24 long with alphanumeric or underscore';
                 }
                 return null;
               },
             ),
-            const Spacer(),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: _isLoading ? null : _signUp,
               child: const Text('Register'),
             ),
-            const Spacer(),
+            const SizedBox(height: 16),
             TextButton(
                 onPressed: () {
-                  Navigator.of(context)
-                      .push(LoginPage.route());
+                  Navigator.of(context).push(LoginPage.route());
                 },
-                child:
-                const Text('I already have an account'))
+                child: const Text('I already have an account'))
           ],
         ),
       ),
