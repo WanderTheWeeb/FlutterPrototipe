@@ -168,11 +168,12 @@ class _ChatBubble extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             color: message.isMine
-                ? Colors.grey[300]
+                ? const Color.fromRGBO(173, 128, 12, 1)
                 : Theme.of(context).primaryColor,
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Text(message.content),
+          child: Text(message.content,
+          style: const TextStyle(color: Colors.white)),
         ),
       ),
       const SizedBox(width: 12),

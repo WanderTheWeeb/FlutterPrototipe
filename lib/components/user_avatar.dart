@@ -19,6 +19,7 @@ class UserAvatar extends StatelessWidget {
         if (state is ProfilesLoaded) {
           final user = state.profiles[userId];
           return CircleAvatar(
+            backgroundColor: Theme.of(context).primaryColor,
             child:
             user == null ? preloader : Text(user.username.substring(0, 2)),
           );

@@ -32,11 +32,12 @@ class _LoginPageState extends State<LoginPage> {
       context.showErrorSnackBar(message: error.message);
     } catch (_) {
       context.showErrorSnackBar(
-          message: unexpectedErrorMessage);
+        message: unexpectedErrorMessage,
+      );
     }
     if (mounted) {
       setState(() {
-        _isLoading = true;
+        _isLoading = false;
       });
     }
   }

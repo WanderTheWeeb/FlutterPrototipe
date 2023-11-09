@@ -10,7 +10,6 @@ import '../models/profile.dart';
 import '../utils/constants.dart';
 import 'chat_page.dart';
 
-/// Displays the list of chat threads
 class RoomsPage extends StatelessWidget {
   const RoomsPage({Key? key}) : super(key: key);
 
@@ -25,7 +24,9 @@ class RoomsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> _globalKey = GlobalKey();
     return Scaffold(
+      key: _globalKey,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text('Rooms'),
@@ -41,6 +42,16 @@ class RoomsPage extends StatelessWidget {
             child: const Text('Logout'),
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: const [
+            ListTile(leading: Icon(Icons.message), title: Text('Mensajes')),
+            ListTile(leading: Icon(Icons.groups), title: Text('Organcizaciones')),
+            ListTile(leading: Icon(Icons.emoji_people),
+                title: Text('Acerca de Nosotros'))
+          ],
+        ),
       ),
       body: BlocBuilder<RoomCubit, RoomState>(
         builder: (context, state) {
@@ -67,20 +78,23 @@ class RoomsPage extends StatelessWidget {
                               onTap: () => Navigator.of(context)
                                   .push(ChatPage.route(room.id)),
                               leading: CircleAvatar(
+                                backgroundColor: Theme.of(context).primaryColor,
                                 child: otherUser == null
                                     ? preloader
                                     : Text(otherUser.username.substring(0, 2)),
                               ),
-                              title: Text(otherUser == null
-                                  ? 'Loading...'
-                                  : otherUser.username,
-                              style: const TextStyle(color: Colors.black)),
+                              title: Text(
+                                  otherUser == null
+                                      ? 'Loading...'
+                                      : otherUser.username,
+                                  style: const TextStyle(color: Colors.black)),
                               subtitle: room.lastMessage != null
                                   ? Text(
                                       room.lastMessage!.content,
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(color: Colors.black),
+                                      style:
+                                          const TextStyle(color: Colors.black),
                                     )
                                   : const Text('Room created'),
                               trailing: Text(
@@ -155,6 +169,7 @@ class _NewUsers extends StatelessWidget {
                       child: Column(
                         children: [
                           CircleAvatar(
+                            backgroundColor: Theme.of(context).primaryColor,
                             child: Text(user.username.substring(0, 2)),
                           ),
                           const SizedBox(height: 8),

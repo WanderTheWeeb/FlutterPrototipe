@@ -5,7 +5,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 final supabase = Supabase.instance.client;
 
 /// Simple preloader inside a Center widget
-const preloader = Center(child: CircularProgressIndicator(color: Colors.blue));
+const preloader = Center(child: CircularProgressIndicator(color: Color.fromRGBO(12, 70, 173, 1)));
 
 /// Simple sized box to space out form elements
 const formSpacer = SizedBox(width: 16, height: 16);
@@ -20,11 +20,11 @@ const unexpectedErrorMessage = 'Unexpected error occured.';
 
 /// Basic theme to change the look and feel of the app
 final appTheme = ThemeData.light().copyWith(
-    primaryColorDark: Colors.blue,
+    primaryColorDark: const Color.fromRGBO(12, 70, 173, 1),
     useMaterial3: true,
     appBarTheme: const AppBarTheme(
       elevation: 1,
-      backgroundColor: Colors.blue,
+      backgroundColor: Color.fromRGBO(12, 70, 173, 1),
       iconTheme: IconThemeData(color: Colors.white),
       titleTextStyle: TextStyle(
         color: Colors.white,
@@ -43,29 +43,31 @@ final appTheme = ThemeData.light().copyWith(
       color: Colors.white,
     ),
 
+
+
     listTileTheme: const ListTileThemeData(
       iconColor: Colors.white,
       textColor: Colors.white,
     ),
 
-    primaryColor: Colors.blue,
+    primaryColor: const Color.fromRGBO(12, 70, 173, 1),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        foregroundColor: Colors.blue,
+        foregroundColor: const Color.fromRGBO(12, 70, 173, 1),
       ),
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.white,
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color.fromRGBO(12, 70, 173, 1),
       ),
     ),
 
     inputDecorationTheme: InputDecorationTheme(
       outlineBorder: const BorderSide(color: Colors.black12),
       floatingLabelStyle: const TextStyle(
-        color: Colors.blue,
+        color: Color.fromRGBO(12, 70, 173, 1),
       ),
 
       border: OutlineInputBorder(
@@ -76,12 +78,12 @@ final appTheme = ThemeData.light().copyWith(
         ),
       ),
 
-      focusColor: Colors.blue,
+      focusColor: const Color.fromRGBO(12, 70, 173, 1),
 
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: const BorderSide(
-          color: Colors.blue,
+          color: Color.fromRGBO(12, 70, 173, 1),
           width: 2,
         ),
       ),
