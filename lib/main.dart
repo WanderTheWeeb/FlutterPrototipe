@@ -1,5 +1,6 @@
 import 'package:MindWell/cubit/rooms/rooms_cubit.dart';
 import 'package:MindWell/pages/introduction_page.dart';
+import 'package:MindWell/pages/introscreen/aboutus_page.dart';
 import 'package:MindWell/pages/introscreen/aclaraciones_page.dart';
 import 'package:MindWell/pages/introscreen/terms&condition_page.dart';
 import 'package:MindWell/pages/introscreen/welcome_page.dart';
@@ -50,9 +51,10 @@ class MyApp extends StatelessWidget {
           '/Terminos&Condiciones': (context) => const TerminosCondiciones(),
           '/Aclaraciones': (context) => const Aclaraciones(),
           '/Bienvenida': (context) => const Bienvenida(),
-          '/SplashScreen': (context) => const SplashPage()
+          '/SplashScreen': (context) => const SplashPage(),
+          '/AboutUs' : (context) => const AboutUs()
         },
-        title: 'SanteChat',
+        title: 'MindWell',
         debugShowCheckedModeBanner: false,
         theme: appTheme,
         home: const IntroductionScreen(),

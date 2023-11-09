@@ -28,6 +28,9 @@ class RoomsPage extends StatelessWidget {
     return Scaffold(
       key: _globalKey,
       appBar: AppBar(
+        leading: IconButton(onPressed: () {
+          _globalKey.currentState?.openDrawer();
+        }, icon: const Icon(Icons.menu)),
         automaticallyImplyLeading: false,
         title: const Text('Rooms'),
         actions: [
@@ -45,11 +48,14 @@ class RoomsPage extends StatelessWidget {
       ),
       drawer: Drawer(
         child: ListView(
-          children: const [
-            ListTile(leading: Icon(Icons.message), title: Text('Mensajes')),
-            ListTile(leading: Icon(Icons.groups), title: Text('Organcizaciones')),
-            ListTile(leading: Icon(Icons.emoji_people),
-                title: Text('Acerca de Nosotros'))
+          children:  [
+            const ListTile(leading: Icon(Icons.message), title: Text('Mensajes')),
+            const ListTile(leading: Icon(Icons.groups), title: Text('Organcizaciones')),
+            ListTile(leading: const Icon(Icons.emoji_people),
+                title: const Text('Acerca de Nosotros'),
+            onTap: () {
+              Navigator.pushNamed(context, '/AboutUs');
+            },)
           ],
         ),
       ),

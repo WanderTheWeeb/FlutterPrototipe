@@ -14,6 +14,7 @@ Widget TextSectionV1(String title, String text) {
         child:
         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           SectionTitle(title),
+          const Divider(thickness: 1),
           const SizedBox(height: 16),
           SectionText(text),
           const SizedBox(height: 16)
@@ -33,7 +34,8 @@ class SectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,
+      color: Theme.of(context).primaryColor),
     );
   }
 }

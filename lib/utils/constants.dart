@@ -5,7 +5,8 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 final supabase = Supabase.instance.client;
 
 /// Simple preloader inside a Center widget
-const preloader = Center(child: CircularProgressIndicator(color: Color.fromRGBO(12, 70, 173, 1)));
+const preloader = Center(
+    child: CircularProgressIndicator(color: Color.fromRGBO(12, 70, 173, 1)));
 
 /// Simple sized box to space out form elements
 const formSpacer = SizedBox(width: 16, height: 16);
@@ -15,8 +16,6 @@ const formPadding = EdgeInsets.symmetric(vertical: 20, horizontal: 16);
 
 /// Error message to display the user when unexpected error occurs.
 const unexpectedErrorMessage = 'Unexpected error occured.';
-
-
 
 /// Basic theme to change the look and feel of the app
 final appTheme = ThemeData.light().copyWith(
@@ -36,14 +35,19 @@ final appTheme = ThemeData.light().copyWith(
       width: 230,
       backgroundColor: Colors.black38,
       elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(20),bottomRight: Radius.circular(20))),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topRight: Radius.circular(20), bottomRight: Radius.circular(20))),
     ),
 
     iconTheme: const IconThemeData(
       color: Colors.white,
     ),
 
+    tabBarTheme: const TabBarTheme(
+        labelColor: Colors.white, unselectedLabelColor: Colors.grey),
 
+    scaffoldBackgroundColor: Colors.white,
 
     listTileTheme: const ListTileThemeData(
       iconColor: Colors.white,
@@ -51,10 +55,15 @@ final appTheme = ThemeData.light().copyWith(
     ),
 
     primaryColor: const Color.fromRGBO(12, 70, 173, 1),
+
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: const Color.fromRGBO(12, 70, 173, 1),
       ),
+    ),
+
+    dividerTheme: const DividerThemeData(
+      color: Colors.grey
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -88,12 +97,9 @@ final appTheme = ThemeData.light().copyWith(
         ),
       ),
     ),
+
     snackBarTheme: const SnackBarThemeData(
-        contentTextStyle: TextStyle(
-            color: Colors.black
-        )
-    )
-);
+        contentTextStyle: TextStyle(color: Colors.black)));
 
 /// Set of extension methods to easily display a snackbar
 extension ShowSnackBar on BuildContext {
