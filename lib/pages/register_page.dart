@@ -106,6 +106,7 @@ class _RegisterPageState extends State<RegisterPage> {
               },
               keyboardType: TextInputType.emailAddress,
             ),
+            const SizedBox(height: 16),
             TextFormField(
               controller: _passwordController,
               obscureText: true,

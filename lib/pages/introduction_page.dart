@@ -95,7 +95,7 @@ class IntroductionScreenState extends State<IntroductionScreen> {
                 controller: _controller,
                 count: 3,
                 effect: const ColorTransitionEffect(
-                    activeDotColor: Colors.indigoAccent,
+                    activeDotColor: Color.fromRGBO(12, 70, 173, 1),
                     dotColor: Colors.blue
                 ),
               ),

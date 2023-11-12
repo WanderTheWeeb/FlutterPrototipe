@@ -1,9 +1,8 @@
 import 'package:MindWell/pages/register_page.dart';
+import 'package:MindWell/utils/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:timeago/timeago.dart';
-
 import '../cubit/profile/profiles_cubit.dart';
 import '../cubit/rooms/rooms_cubit.dart';
 import '../models/profile.dart';
@@ -46,19 +45,7 @@ class RoomsPage extends StatelessWidget {
           ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          children:  [
-            const ListTile(leading: Icon(Icons.message), title: Text('Mensajes')),
-            const ListTile(leading: Icon(Icons.groups), title: Text('Organcizaciones')),
-            ListTile(leading: const Icon(Icons.emoji_people),
-                title: const Text('Acerca de Nosotros'),
-            onTap: () {
-              Navigator.pushNamed(context, '/AboutUs');
-            },)
-          ],
-        ),
-      ),
+      drawer: AppDrawer(),
       body: BlocBuilder<RoomCubit, RoomState>(
         builder: (context, state) {
           if (state is RoomsLoading) {

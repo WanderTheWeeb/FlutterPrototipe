@@ -4,6 +4,7 @@ import 'package:MindWell/pages/introscreen/aboutus_page.dart';
 import 'package:MindWell/pages/introscreen/aclaraciones_page.dart';
 import 'package:MindWell/pages/introscreen/terms&condition_page.dart';
 import 'package:MindWell/pages/introscreen/welcome_page.dart';
+import 'package:MindWell/pages/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:MindWell/pages/chat_page.dart';
@@ -44,9 +45,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         routes: {
           '/LoginPage': (context) => const LoginPage(),
+          '/RegisterScreen': (context) => const RegisterPage(isRegistering: false,),
           '/ChatScreen': (context) => const ChatPage(),
           '/RoomsPage': (context) => const RoomsPage(),
-          '/RegisterScreen': (context) => const RegisterPsiPage(),
+          '/RegisterPsiScreen': (context) => const RegisterPsiPage(),
           '/IntroductionScreen': (context) => const IntroductionScreen(),
           '/Terminos&Condiciones': (context) => const TerminosCondiciones(),
           '/Aclaraciones': (context) => const Aclaraciones(),

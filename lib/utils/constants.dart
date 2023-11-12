@@ -31,9 +31,11 @@ final appTheme = ThemeData.light().copyWith(
       ),
     ),
 
+    dividerColor: Colors.white,
+
     drawerTheme: const DrawerThemeData(
       width: 230,
-      backgroundColor: Colors.black38,
+      backgroundColor: Color.fromRGBO(12, 70, 173, 1),
       elevation: 2,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -48,6 +50,7 @@ final appTheme = ThemeData.light().copyWith(
         labelColor: Colors.white, unselectedLabelColor: Colors.grey),
 
     scaffoldBackgroundColor: Colors.white,
+
 
     listTileTheme: const ListTileThemeData(
       iconColor: Colors.white,
