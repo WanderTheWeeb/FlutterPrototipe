@@ -40,7 +40,8 @@ class AppDrawer extends StatelessWidget {
                                     TextButton(
                                       onPressed: () async {
                                         await supabase.auth.signOut();
-                                        Navigator.pushNamed(context, '/RegisterScreen');
+                                        Navigator.pushNamed(
+                                            context, '/RegisterScreen');
                                       },
                                       child: const Text('Aceptar'),
                                     ),
@@ -48,7 +49,8 @@ class AppDrawer extends StatelessWidget {
                                 );
                               },
                             );
-                          }, icon: const Icon(Icons.logout)),
+                          },
+                          icon: const Icon(Icons.logout)),
                     ])),
             const SizedBox(height: 16),
             const CircleAvatar(
@@ -58,8 +60,13 @@ class AppDrawer extends StatelessWidget {
                 radius: 100),
             const SizedBox(height: 16),
             const Divider(thickness: 1, color: Colors.white),
-            const ListTile(
-                leading: Icon(Icons.message), title: Text('Mensajes')),
+            ListTile(
+              leading: const Icon(Icons.psychology),
+              title: const Text('Soy psicologo'),
+              onTap: () {
+                Navigator.pushNamed(context, '/RegisterPsiScreen');
+              },
+            ),
             const ListTile(
                 leading: Icon(Icons.groups), title: Text('Organcizaciones')),
             ListTile(
@@ -68,7 +75,11 @@ class AppDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(context, '/AboutUs');
               },
-            )
+            ),
+             ListTile(leading: Icon(Icons.star),title: Text('Mejorar cuenta'),
+             onTap: () {
+               Navigator.pushNamed(context, '/PricePage');
+             },),
           ],
         ),
       ),

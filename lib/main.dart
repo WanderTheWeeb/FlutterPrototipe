@@ -4,6 +4,7 @@ import 'package:MindWell/pages/introscreen/aboutus_page.dart';
 import 'package:MindWell/pages/introscreen/aclaraciones_page.dart';
 import 'package:MindWell/pages/introscreen/terms&condition_page.dart';
 import 'package:MindWell/pages/introscreen/welcome_page.dart';
+import 'package:MindWell/pages/price_plan_page.dart';
 import 'package:MindWell/pages/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -54,7 +55,8 @@ class MyApp extends StatelessWidget {
           '/Aclaraciones': (context) => const Aclaraciones(),
           '/Bienvenida': (context) => const Bienvenida(),
           '/SplashScreen': (context) => const SplashPage(),
-          '/AboutUs' : (context) => const AboutUs()
+          '/AboutUs' : (context) => const AboutUs(),
+          '/PricePage': (context) => const PricePage()
         },
         title: 'MindWell',
         debugShowCheckedModeBanner: false,

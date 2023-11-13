@@ -106,6 +106,7 @@ class _RegisterPsiPageState extends State<RegisterPsiPage> {
               onPressed: () {},
               child: const Text('Subir Documento de Identidad'),
             ),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {},
               child: const Text('Registrarse'),
