@@ -1,3 +1,4 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 Widget TextSectionV1(String title, String text) {
@@ -36,10 +37,7 @@ Widget TextSectionV2(String title, String subtitle, String text, String price) {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SectionTitle(title),
-                Text(price)
-              ],
+              children: [SectionTitle(title), Text(price)],
             ),
             const Divider(thickness: 1),
             const SizedBox(height: 16),
@@ -47,8 +45,16 @@ Widget TextSectionV2(String title, String subtitle, String text, String price) {
             const SizedBox(height: 16),
             SectionText(text),
             const SizedBox(height: 24),
-                Center(child: ElevatedButton(onPressed: () {}, child: const Text('¡Suscribirse!')))
-
+            Center(
+                child: ElevatedButton(
+                    onPressed: () async {
+                      String? filePath = await _pickFile();
+                      if (filePath != null) {
+                        // Realiza acciones con el archivo seleccionado
+                        print('Ruta del archivo seleccionado: $filePath');
+                      }
+                    },
+                    child: const Text('¡Suscribirse!')))
           ]),
         ),
       ),
@@ -104,5 +110,22 @@ class SectionText extends StatelessWidget {
       ),
       textAlign: TextAlign.justify,
     );
+  }
+}
+
+Future<String?> _pickFile() async {
+  try {
+    FilePickerResult? result = await FilePicker.platform.pickFiles();
+    if (result != null) {
+      // Obtiene la ruta del archivo seleccionado
+      String filePath = result.files.single.path!;
+      return filePath;
+    } else {
+      // El usuario canceló la selección
+      return null;
+    }
+  } catch (e) {
+    print('Error al seleccionar el archivo: $e');
+    return null;
   }
 }
