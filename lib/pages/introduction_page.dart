@@ -1,7 +1,6 @@
 import 'package:MindWell/pages/introscreen/aclaraciones_page.dart';
 import 'package:MindWell/pages/introscreen/terms&condition_page.dart';
 import 'package:MindWell/pages/introscreen/welcome_page.dart';
-import 'package:MindWell/pages/rooms_page.dart';
 import 'package:MindWell/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';

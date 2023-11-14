@@ -80,6 +80,10 @@ class AppDrawer extends StatelessWidget {
              onTap: () {
                Navigator.pushNamed(context, '/PricePage');
              },),
+            ListTile(leading: Icon(Icons.info),title: Text('Informacion'),
+            onTap: () {
+              Navigator.pushNamed(context, '/InformationPage');
+            },)
           ],
         ),
       ),

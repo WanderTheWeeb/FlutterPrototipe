@@ -1,4 +1,5 @@
 import 'package:MindWell/cubit/rooms/rooms_cubit.dart';
+import 'package:MindWell/pages/information_page.dart';
 import 'package:MindWell/pages/introduction_page.dart';
 import 'package:MindWell/pages/introscreen/aboutus_page.dart';
 import 'package:MindWell/pages/introscreen/aclaraciones_page.dart';
@@ -56,7 +57,8 @@ class MyApp extends StatelessWidget {
           '/Bienvenida': (context) => const Bienvenida(),
           '/SplashScreen': (context) => const SplashPage(),
           '/AboutUs' : (context) => const AboutUs(),
-          '/PricePage': (context) => const PricePage()
+          '/PricePage': (context) => const PricePage(),
+          '/InformationPage': (context) => const InformationPage(),
         },
         title: 'MindWell',
         debugShowCheckedModeBanner: false,
