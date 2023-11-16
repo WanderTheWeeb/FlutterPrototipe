@@ -50,6 +50,7 @@ flutter:
       - assets/logo/MindWell.png
       - assets/Salud.jpg
       - assets/logo/MindWellComplete.png
+      - assets/images/google.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -64,7 +64,7 @@ class AppDrawer extends StatelessWidget {
               leading: const Icon(Icons.psychology),
               title: const Text('Soy psicologo'),
               onTap: () {
-                Navigator.pushNamed(context, '/RegisterPsiScreen');
+                Navigator.pushNamed(context, '/Login_psi');
               },
             ),
             const ListTile(
@@ -76,14 +76,20 @@ class AppDrawer extends StatelessWidget {
                 Navigator.pushNamed(context, '/AboutUs');
               },
             ),
-             ListTile(leading: Icon(Icons.star),title: Text('Mejorar cuenta'),
-             onTap: () {
-               Navigator.pushNamed(context, '/PricePage');
-             },),
-            ListTile(leading: Icon(Icons.info),title: Text('Informacion'),
-            onTap: () {
-              Navigator.pushNamed(context, '/InformationPage');
-            },)
+            ListTile(
+              leading: Icon(Icons.star),
+              title: Text('Mejorar cuenta'),
+              onTap: () {
+                Navigator.pushNamed(context, '/PricePage');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text('Informacion'),
+              onTap: () {
+                Navigator.pushNamed(context, '/InformationPage');
+              },
+            )
           ],
         ),
       ),
