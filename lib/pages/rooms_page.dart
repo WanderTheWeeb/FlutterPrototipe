@@ -1,4 +1,5 @@
 import 'package:MindWell/utils/drawer.dart';
+import 'package:MindWell/utils/my_widgets/TextSectionV1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:timeago/timeago.dart';
@@ -59,42 +60,44 @@ class RoomsPage extends StatelessWidget {
 
                             return Padding(
                               padding: const EdgeInsets.only(bottom: 2, top: 2),
-                              child: ListTile(
-                                onTap: () => Navigator.of(context)
-                                    .push(ChatPage.route(room.id)),
-                                leading: CircleAvatar(
-                                  backgroundColor:
-                                      Theme.of(context).primaryColor,
-                                  child: otherUser == null
-                                      ? preloader
-                                      : Text(
-                                          otherUser.username.substring(0, 2)),
+                              child: Material(
+                                // Agregar un borde al Material que envuelve al ListTile
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0), // Ajusta el radio según sea necesario
+                                  side: BorderSide(color: Theme.of(context).primaryColor), // Color del borde
                                 ),
-                                title: Text(
-                                    otherUser == null
-                                        ? 'Cargando...'
-                                        : otherUser.username,
-                                    style:
-                                        const TextStyle(color: Colors.black)),
-                                subtitle: room.lastMessage != null
-                                    ? Text(
-                                        room.lastMessage!.content,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: const TextStyle(
-                                            color: Colors.black),
-                                      )
-                                    :  Text('Chat creado',style: TextStyle(color: Theme.of(context).primaryColor)),
-                                trailing: Text(
+                                child: ListTile(
+                                  onTap: () => Navigator.of(context).push(ChatPage.route(room.id)),
+                                  leading: CircleAvatar(
+                                    backgroundColor: Theme.of(context).primaryColor,
+                                    child: otherUser == null
+                                        ? preloader
+                                        : Text(otherUser.username.substring(0, 2)),
+                                  ),
+                                  title: Text(
+                                    otherUser == null ? 'Cargando...' : otherUser.username,
+                                    style: const TextStyle(color: Colors.black),
+                                  ),
+                                  subtitle: room.lastMessage != null
+                                      ? Text(
+                                    room.lastMessage!.content,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(color: Colors.black),
+                                  )
+                                      : Text('Chat creado',
+                                      style: TextStyle(color: Theme.of(context).primaryColor)),
+                                  trailing: Text(
                                     format(
-                                        room.lastMessage?.createdAt ??
-                                            room.createdAt,
+                                        room.lastMessage?.createdAt ?? room.createdAt,
                                         locale: 'en_short'),
-                                    style:
-                                        const TextStyle(color: Colors.black)),
-                                tileColor: Colors.cyan[50],
+                                    style: const TextStyle(color: Colors.black),
+                                  ),
+                                  tileColor: Colors.grey[200],
+                                ),
                               ),
                             );
+
                           },
                         ),
                       ),
@@ -110,9 +113,16 @@ class RoomsPage extends StatelessWidget {
             return Column(
               children: [
                 _NewUsers(newUsers: newUsers),
-                const Expanded(
+                 Expanded(
                   child: Center(
-                    child: Text('Dale click a los usuarios disponibles'),
+                    child: ListView(
+                      children: [
+                        TextSectionV1('Inicia una conversación', 'Reconocer la necesidad de apoyo emocional es un acto de autenticidad y fortaleza, y tu decisión demuestra un profundo compromiso contigo mismo'),
+                        Container(height: 300,
+                        decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/RoomsEmpty.png')))),
+
+                      ],
+                    ),
                   ),
                 ),
               ],

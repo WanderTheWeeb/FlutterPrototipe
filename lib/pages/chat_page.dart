@@ -1,3 +1,4 @@
+import 'package:MindWell/utils/my_widgets/TextSectionV1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -55,14 +56,20 @@ class ChatPage extends StatelessWidget {
               ],
             );
           } else if (state is ChatEmpty) {
-            return const Column(
+            return  Column(
               children: [
                 Expanded(
                   child: Center(
-                    child: Text('Start your conversation now :)'),
+                    child: ListView(
+                      children: [
+                        Container(height: 400,
+                            decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/ayuda.jpg')))),
+                        TextSectionV1('Bienvenido al chat', 'Escribenos qué pasa, en breve un especialista se conectara a atender.')
+                      ],
+                    ),
                   ),
                 ),
-                _MessageBar(),
+                const _MessageBar(),
               ],
             );
           } else if (state is ChatError) {
@@ -117,7 +124,7 @@ class _MessageBarState extends State<_MessageBar> {
             ),
             TextButton(
               onPressed: () => _submitMessage(),
-              child: const Text('Send'),
+              child: const Text('Enviar'),
             ),
           ],
         ),
