@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Sign In')),
+      appBar: AppBar(title: const Text('Iniciar Sesión')),
       body: ListView(
         padding: formPadding,
         children: [
@@ -66,13 +66,13 @@ class _LoginPageState extends State<LoginPage> {
           TextFormField(
             controller: _passwordController,
             decoration: const InputDecoration(
-                labelText: 'Password'),
+                labelText: 'Contraseña'),
             obscureText: true,
           ),
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: _isLoading ? null : _signIn,
-            child: const Text('Login'),
+            child: const Text('Iniciar Sesión'),
           ),
         ],
       ),

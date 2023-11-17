@@ -73,7 +73,7 @@ class _RegisterPageState extends State<RegisterPage> {
         emailRedirectTo: 'io.supabase.chat://login',
       );
       context.showSnackBar(
-          message: 'Please check your inbox for confirmation email.');
+          message: 'Por favor revisa tu correo electronico para confirmar ');
     } on AuthException catch (error) {
       context.showErrorSnackBar(message: error.message);
     } catch (error) {
@@ -86,7 +86,8 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register'),
+        automaticallyImplyLeading: false,
+        title: const Text('Registro'),
       ),
       body: Form(
         key: _formKey,
@@ -100,7 +101,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               validator: (val) {
                 if (val == null || val.isEmpty) {
-                  return 'Required';
+                  return 'Obligatorio';
                 }
                 return null;
               },
@@ -111,14 +112,14 @@ class _RegisterPageState extends State<RegisterPage> {
               controller: _passwordController,
               obscureText: true,
               decoration: const InputDecoration(
-                label: Text('Password'),
+                label: Text('Contraseña'),
               ),
               validator: (val) {
                 if (val == null || val.isEmpty) {
-                  return 'Required';
+                  return 'Obligatorio';
                 }
                 if (val.length < 6) {
-                  return '6 characters minimum';
+                  return '6 caracteres como minimo';
                 }
                 return null;
               },
@@ -127,15 +128,15 @@ class _RegisterPageState extends State<RegisterPage> {
             TextFormField(
               controller: _usernameController,
               decoration: const InputDecoration(
-                label: Text('Username'),
+                label: Text('Usuario'),
               ),
               validator: (val) {
                 if (val == null || val.isEmpty) {
-                  return 'Required';
+                  return 'Obligatorio';
                 }
                 final isValid = RegExp(r'^[A-Za-z0-9_]{3,24}$').hasMatch(val);
                 if (!isValid) {
-                  return '3-24 long with alphanumeric or underscore';
+                  return '3-24 caracteres alfanuméricos';
                 }
                 return null;
               },
@@ -143,14 +144,14 @@ class _RegisterPageState extends State<RegisterPage> {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: _isLoading ? null : _signUp,
-              child: const Text('Register'),
+              child: const Text('Registrate'),
             ),
             const SizedBox(height: 16),
             TextButton(
                 onPressed: () {
                   Navigator.of(context).push(LoginPage.route());
                 },
-                child: const Text('I already have an account'))
+                child: const Text('Ya tengo una cuenta'))
           ],
         ),
       ),
