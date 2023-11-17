@@ -77,15 +77,15 @@ class AppDrawer extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.star),
-              title: Text('Mejorar cuenta'),
+              leading: const Icon(Icons.star),
+              title: const Text('Mejorar cuenta'),
               onTap: () {
                 Navigator.pushNamed(context, '/PricePage');
               },
             ),
             ListTile(
-              leading: Icon(Icons.info),
-              title: Text('Informacion'),
+              leading: const Icon(Icons.info),
+              title: const Text('Informacion'),
               onTap: () {
                 Navigator.pushNamed(context, '/InformationPage');
               },

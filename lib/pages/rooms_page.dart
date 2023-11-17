@@ -51,7 +51,7 @@ class RoomsPage extends StatelessWidget {
                       _NewUsers(newUsers: newUsers),
                       Expanded(
                         child: ListView.builder(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           itemCount: rooms.length,
                           itemBuilder: (context, index) {
                             final room = rooms[index];
