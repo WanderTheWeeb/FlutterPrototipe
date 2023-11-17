@@ -1,4 +1,3 @@
-
 import 'package:MindWell/utils/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,9 +26,11 @@ class RoomsPage extends StatelessWidget {
     return Scaffold(
       key: _globalKey,
       appBar: AppBar(
-        leading: IconButton(onPressed: () {
-          _globalKey.currentState?.openDrawer();
-        }, icon: const Icon(Icons.menu)),
+        leading: IconButton(
+            onPressed: () {
+              _globalKey.currentState?.openDrawer();
+            },
+            icon: const Icon(Icons.menu)),
         automaticallyImplyLeading: false,
         title: const Text('Rooms'),
       ),
@@ -57,28 +58,31 @@ class RoomsPage extends StatelessWidget {
                             final otherUser = profiles[room.otherUserId];
 
                             return Padding(
-                              padding: const EdgeInsets.only(bottom: 2,top: 2),
+                              padding: const EdgeInsets.only(bottom: 2, top: 2),
                               child: ListTile(
                                 onTap: () => Navigator.of(context)
                                     .push(ChatPage.route(room.id)),
                                 leading: CircleAvatar(
-                                  backgroundColor: Theme.of(context).primaryColor,
+                                  backgroundColor:
+                                      Theme.of(context).primaryColor,
                                   child: otherUser == null
                                       ? preloader
-                                      : Text(otherUser.username.substring(0, 2)),
+                                      : Text(
+                                          otherUser.username.substring(0, 2)),
                                 ),
                                 title: Text(
                                     otherUser == null
                                         ? 'Loading...'
                                         : otherUser.username,
-                                    style: const TextStyle(color: Colors.black)),
+                                    style:
+                                        const TextStyle(color: Colors.black)),
                                 subtitle: room.lastMessage != null
                                     ? Text(
                                         room.lastMessage!.content,
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style:
-                                            const TextStyle(color: Colors.black),
+                                        style: const TextStyle(
+                                            color: Colors.black),
                                       )
                                     : const Text('Room created'),
                                 trailing: Text(
@@ -86,7 +90,8 @@ class RoomsPage extends StatelessWidget {
                                         room.lastMessage?.createdAt ??
                                             room.createdAt,
                                         locale: 'en_short'),
-                                    style: const TextStyle(color: Colors.black)),
+                                    style:
+                                        const TextStyle(color: Colors.black)),
                                 tileColor: Colors.cyan[50],
                               ),
                             );
