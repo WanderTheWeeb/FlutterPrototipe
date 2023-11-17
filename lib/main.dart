@@ -27,7 +27,6 @@ void main() async {
     anonKey:
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpicXNxdHVhb2Joa3pybmVxanV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkwNTMzMjAsImV4cCI6MjAxNDYyOTMyMH0.OateYbq2LrEt7DmoapCGWmUZ0ttKb4YUakZfaobopT4',
   );
-
   runApp(const MyApp());
 }
 

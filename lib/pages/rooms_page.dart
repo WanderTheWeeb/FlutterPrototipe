@@ -72,7 +72,7 @@ class RoomsPage extends StatelessWidget {
                                 ),
                                 title: Text(
                                     otherUser == null
-                                        ? 'Loading...'
+                                        ? 'Cargando...'
                                         : otherUser.username,
                                     style:
                                         const TextStyle(color: Colors.black)),
@@ -84,7 +84,7 @@ class RoomsPage extends StatelessWidget {
                                         style: const TextStyle(
                                             color: Colors.black),
                                       )
-                                    : const Text('Room created'),
+                                    :  Text('Chat creado',style: TextStyle(color: Theme.of(context).primaryColor)),
                                 trailing: Text(
                                     format(
                                         room.lastMessage?.createdAt ??
@@ -112,7 +112,7 @@ class RoomsPage extends StatelessWidget {
                 _NewUsers(newUsers: newUsers),
                 const Expanded(
                   child: Center(
-                    child: Text('Start a chat by tapping on available users'),
+                    child: Text('Dale click a los usuarios disponibles'),
                   ),
                 ),
               ],
@@ -150,7 +150,7 @@ class _NewUsers extends StatelessWidget {
                       Navigator.of(context).push(ChatPage.route(roomId));
                     } catch (_) {
                       context.showErrorSnackBar(
-                          message: 'Failed creating a new room');
+                          message: 'Error al crear el chat');
                     }
                   },
                   child: Padding(

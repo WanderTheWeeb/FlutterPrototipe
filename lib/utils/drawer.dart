@@ -40,8 +40,7 @@ class AppDrawer extends StatelessWidget {
                                     TextButton(
                                       onPressed: () async {
                                         await supabase.auth.signOut();
-                                        Navigator.pushNamed(
-                                            context, '/RegisterScreen');
+                                        Navigator.pushNamedAndRemoveUntil(context, '/RegisterScreen', (route) => false);
                                       },
                                       child: const Text('Aceptar'),
                                     ),
