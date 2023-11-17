@@ -108,7 +108,7 @@ class _MessageBarState extends State<_MessageBar> {
                 autofocus: true,
                 controller: _textController,
                 decoration: const InputDecoration(
-                  hintText: 'Type a message',
+                  hintText: 'Escribe qué pasa',
                   border: InputBorder.none,
                   focusedBorder: InputBorder.none,
                   contentPadding: EdgeInsets.all(8),
@@ -173,7 +173,7 @@ class _ChatBubble extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           ),
           child: Text(message.content,
-          style: const TextStyle(color: Colors.white)),
+              style: const TextStyle(color: Colors.white)),
         ),
       ),
       const SizedBox(width: 12),
@@ -187,7 +187,7 @@ class _ChatBubble extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 18),
       child: Row(
         mainAxisAlignment:
-        message.isMine ? MainAxisAlignment.end : MainAxisAlignment.start,
+            message.isMine ? MainAxisAlignment.end : MainAxisAlignment.start,
         children: chatContents,
       ),
     );

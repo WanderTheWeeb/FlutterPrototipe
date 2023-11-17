@@ -6,8 +6,7 @@ class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   static Route<void> route() {
-    return MaterialPageRoute(
-        builder: (context) => const LoginPage());
+    return MaterialPageRoute(builder: (context) => const LoginPage());
   }
 
   @override
@@ -58,15 +57,13 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           TextFormField(
             controller: _emailController,
-            decoration:
-            const InputDecoration(labelText: 'Email'),
+            decoration: const InputDecoration(labelText: 'Correo Electrónico'),
             keyboardType: TextInputType.emailAddress,
           ),
           const SizedBox(height: 16),
           TextFormField(
             controller: _passwordController,
-            decoration: const InputDecoration(
-                labelText: 'Contraseña'),
+            decoration: const InputDecoration(labelText: 'Contraseña'),
             obscureText: true,
           ),
           const SizedBox(height: 16),
