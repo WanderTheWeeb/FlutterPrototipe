@@ -32,18 +32,6 @@ class RoomsPage extends StatelessWidget {
         }, icon: const Icon(Icons.menu)),
         automaticallyImplyLeading: false,
         title: const Text('Rooms'),
-        actions: [
-          TextButton(
-            onPressed: () async {
-              await supabase.auth.signOut();
-              Navigator.of(context).pushAndRemoveUntil(
-                RegisterPage.route(),
-                (route) => false,
-              );
-            },
-            child: const Text('Logout'),
-          ),
-        ],
       ),
       drawer: AppDrawer(),
       body: BlocBuilder<RoomCubit, RoomState>(
@@ -62,40 +50,45 @@ class RoomsPage extends StatelessWidget {
                       _NewUsers(newUsers: newUsers),
                       Expanded(
                         child: ListView.builder(
+                          padding: EdgeInsets.all(10),
                           itemCount: rooms.length,
                           itemBuilder: (context, index) {
                             final room = rooms[index];
                             final otherUser = profiles[room.otherUserId];
 
-                            return ListTile(
-                              onTap: () => Navigator.of(context)
-                                  .push(ChatPage.route(room.id)),
-                              leading: CircleAvatar(
-                                backgroundColor: Theme.of(context).primaryColor,
-                                child: otherUser == null
-                                    ? preloader
-                                    : Text(otherUser.username.substring(0, 2)),
+                            return Padding(
+                              padding: const EdgeInsets.only(bottom: 2,top: 2),
+                              child: ListTile(
+                                onTap: () => Navigator.of(context)
+                                    .push(ChatPage.route(room.id)),
+                                leading: CircleAvatar(
+                                  backgroundColor: Theme.of(context).primaryColor,
+                                  child: otherUser == null
+                                      ? preloader
+                                      : Text(otherUser.username.substring(0, 2)),
+                                ),
+                                title: Text(
+                                    otherUser == null
+                                        ? 'Loading...'
+                                        : otherUser.username,
+                                    style: const TextStyle(color: Colors.black)),
+                                subtitle: room.lastMessage != null
+                                    ? Text(
+                                        room.lastMessage!.content,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style:
+                                            const TextStyle(color: Colors.black),
+                                      )
+                                    : const Text('Room created'),
+                                trailing: Text(
+                                    format(
+                                        room.lastMessage?.createdAt ??
+                                            room.createdAt,
+                                        locale: 'en_short'),
+                                    style: const TextStyle(color: Colors.black)),
+                                tileColor: Colors.cyan[50],
                               ),
-                              title: Text(
-                                  otherUser == null
-                                      ? 'Loading...'
-                                      : otherUser.username,
-                                  style: const TextStyle(color: Colors.black)),
-                              subtitle: room.lastMessage != null
-                                  ? Text(
-                                      room.lastMessage!.content,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style:
-                                          const TextStyle(color: Colors.black),
-                                    )
-                                  : const Text('Room created'),
-                              trailing: Text(
-                                  format(
-                                      room.lastMessage?.createdAt ??
-                                          room.createdAt,
-                                      locale: 'en_short'),
-                                  style: const TextStyle(color: Colors.black)),
                             );
                           },
                         ),
