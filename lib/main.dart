@@ -18,6 +18,7 @@ import 'cubit/profile/profiles_cubit.dart';
 import 'pages/splash_page.dart';
 import 'utils/constants.dart';
 import 'pages/loguin_psi_page.dart';
+import 'pages/login_org.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -62,6 +63,7 @@ class MyApp extends StatelessWidget {
           '/PricePage': (context) => const PricePage(),
           '/InformationPage': (context) => const InformationPage(),
           '/Login_psi': (context) => LoginPsiPage(),
+          '/Login_org': (context) => LoginOrg(),
         },
         title: 'MindWell',
         debugShowCheckedModeBanner: false,

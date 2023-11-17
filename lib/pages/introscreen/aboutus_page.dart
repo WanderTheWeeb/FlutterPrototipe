@@ -26,7 +26,6 @@ class AboutUs extends StatelessWidget {
                 padding: const EdgeInsets.all(15),
                 children: [
                   const CircleAvatar(
-
                     radius: 170,
                     backgroundImage: AssetImage(
                       'assets/logo/MindWell.png',
@@ -40,15 +39,18 @@ class AboutUs extends StatelessWidget {
                 TextSectionV1('Misión',
                     'MindWell es una empresa dedicada a brindar atención psicológica oportuna, eficaz e integral a cualquier persona que lo necesite. Estamos comprometidos a impulsar la accesibilidad de atención psicológica'),
                 TextSectionV1('Visión',
-                    'Posicionarnos como una aplicación líder en temas de salud mental. Atendiendo las necesidades de las personas que busquen atención psicológica, siendo reconocidos a nivel nacional e internacional por ser una empresa que rompe las barreras del lenguaje'),
+                    'Posicionarnos como una aplicación líder en temas de salud mental. Atendiendo las necesidades de las personas que busquen atención psicológica, siendo reconocidos a nivel nacional e internacional por ser una empresa que rompe las barreras del lenguaje y los posibles estigmas relacionados con buscar ayuda psicológica'),
                 TextSectionV1('Conoce nuestra imagen',
-                    'La palabra MindWell significa mente sana en inglés. El color azul representa un sentimiento de confianza, honestidad, fiabilidad, calidad y seguridad, estos valores le vienen muy bien a MindWell, debido a los objetivos que se buscan, como lo son el dar una atención psicológica de calidad y buscando siempre el confort de los usuarios que utilicen nuestros servicios. El rojo que se muestra en el corazón representa el beneficio que se busca lograr en cuestiones de salud mental')
+                    'La palabra MindWell significa mente sana en inglés. El color azul representa un sentimiento de confianza, honestidad, fiabilidad, calidad y seguridad, estos valores le vienen muy bien a MindWell, debido a los objetivos que se buscan, como lo son el dar una atención psicológica de calidad y buscando siempre el confort de los usuarios que utilicen nuestros servicios.')
               ]),
               ListView(
                 padding: const EdgeInsets.all(15),
                 children: [
-                  Container(height: 150,
-                    decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('assets/Salud.jpg'))),
+                  Container(
+                    height: 150,
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/Salud.jpg'))),
                   ),
                   TextSectionV1('Fílosofia',
                       'MindWell es una empresa que prevalece con el valor de la empatía, pues reconocemos las dificultades que cada persona atraviesa derivado del poco acceso que hoy en día se tiene a una atención psicológica digna y respetuosa.')

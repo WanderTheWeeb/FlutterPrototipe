@@ -40,7 +40,10 @@ class AppDrawer extends StatelessWidget {
                                     TextButton(
                                       onPressed: () async {
                                         await supabase.auth.signOut();
-                                        Navigator.pushNamedAndRemoveUntil(context, '/RegisterScreen', (route) => false);
+                                        Navigator.pushNamedAndRemoveUntil(
+                                            context,
+                                            '/RegisterScreen',
+                                            (route) => false);
                                       },
                                       child: const Text('Aceptar'),
                                     ),
@@ -66,8 +69,13 @@ class AppDrawer extends StatelessWidget {
                 Navigator.pushNamed(context, '/Login_psi');
               },
             ),
-            const ListTile(
-                leading: Icon(Icons.groups), title: Text('Organcizaciones')),
+            ListTile(
+              leading: Icon(Icons.groups),
+              title: Text('Organcizaciones'),
+              onTap: () {
+                Navigator.pushNamed(context, '/Login_org');
+              },
+            ),
             ListTile(
               leading: const Icon(Icons.emoji_people),
               title: const Text('Acerca de Nosotros'),
