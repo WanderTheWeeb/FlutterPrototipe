@@ -1,4 +1,4 @@
-import 'package:MindWell/pages/register_page.dart';
+
 import 'package:MindWell/utils/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
